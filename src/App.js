@@ -6,9 +6,8 @@ function App() {
     <div
       className="App"
       style={{
-        alignItems: "center",
-        justifyContent: "center",
-        display: "flex",
+        width: 500,
+        margin: "auto",
         paddingTop: 300
       }}
     >
@@ -17,6 +16,7 @@ function App() {
         type="text"
         placeholder="Required..."
         required
+        error="Não pode"
       />
     </div>
   );

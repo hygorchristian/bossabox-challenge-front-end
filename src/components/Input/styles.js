@@ -1,38 +1,67 @@
 import styled from "styled-components";
+import {
+  DarkerWhite,
+  DarkestWhite,
+  MostDarkestWhite,
+  Ink,
+  LightInk,
+  LighterInk,
+  Red,
+  LightRed
+} from "../../utils/Colors";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Label = styled.span`
   font-size: 20px;
-  color: #170c3a;
+  color: ${Ink};
   margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+`;
+
+export const Asterisco = styled.span`
+  position: absolute;
+  margin-top: 3px;
+  margin-left: 9px;
+  color: ${props => (props.error ? Red : LightInk)};
+`;
+
+export const ErrorMessage = styled.div`
+  color: ${Red};
+  font-size: 18px;
+  width: 100%;
+  margin: 8px 0 0 20px;
+  text-align: right;
 `;
 
 export const TextInput = styled.input`
   height: 50px;
-  min-width: 400px;
+  width: 100%;
   border-radius: 5px;
-  border: 1px solid ${props => (!props.error ? "#ebeaed" : "#F95E5A")};
-  background-color: ${props => (!props.error ? "#F5F4F6" : "#FEEFEE")};
+  border: 1px solid ${props => (props.error ? Red : DarkestWhite)};
+  background-color: ${props => (props.error ? "#FEEFEE" : DarkerWhite)};
   padding-left: 20px;
   justify-content: center;
   font-size: 20px;
-  color: ${props => (!props.error ? "#170c3a" : "#F95E5A")};
+  color: ${props => (props.error ? Red : Ink)};
 
   &::placeholder {
-    color: #b1adb9;
+    color: ${props => (props.error ? LightRed : LighterInk)};
   }
 
   &:focus {
-    background-color: #ebeaed;
-    border-color: #dedce1;
+    background-color: ${DarkestWhite};
+    border-color: ${MostDarkestWhite};
+    color: ${Ink};
     outline: none;
 
     &::placeholder {
-      color: #8f8a9b;
+      color: ${LightInk};
     }
   }
 `;
