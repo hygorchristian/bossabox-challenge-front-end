@@ -1,25 +1,14 @@
-import React from "react";
-import Input from "./components/Input";
+import React, { Component } from "react";
+import GlobaStyle from "./styles/global";
+import Home from "./screens/Home";
 
-function App() {
-  return (
-    <div
-      className="App"
-      style={{
-        width: 500,
-        margin: "auto",
-        paddingTop: 300
-      }}
-    >
-      <Input
-        label="Input here"
-        type="text"
-        placeholder="Required..."
-        required
-        error="Não pode"
-      />
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <>
+        <GlobaStyle />
+        <Home />
+      </>
+    );
+  }
 }
-
-export default App;

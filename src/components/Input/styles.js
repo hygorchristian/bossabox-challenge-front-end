@@ -11,9 +11,8 @@ import {
 } from "../../utils/Colors";
 
 export const Container = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  width: 100%;
 `;
 
 export const Label = styled.span`
@@ -35,7 +34,7 @@ export const ErrorMessage = styled.div`
   color: ${Red};
   font-size: 18px;
   width: 100%;
-  margin: 8px 0 0 20px;
+  margin: 8px 0 0 0;
   text-align: right;
 `;
 

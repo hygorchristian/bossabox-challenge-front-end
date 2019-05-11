@@ -9,7 +9,7 @@ export const MostDarkestWhite = "#DEDCE1";
 export const Ink = "#170C3A";
 export const LightInk = "#8F8A9B";
 export const LighterInk = "#B1ADB9";
-export const Lightestnk = "#C7C4CD";
+export const LightestInk = "#C7C4CD";
 
 /* BLUE */
 export const DarkerBlue = "#244AA8";
