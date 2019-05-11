@@ -5,19 +5,50 @@ import Button from "../../components/Button";
 import Tool from "../../components/Tool";
 import ModalCreate from "../../components/ModalCreate";
 import { listTools } from "../../services/api";
+import emptyList from "./assets/empty.jpg";
 
 export default class Home extends Component {
   state = {
     modalCreateOpen: false,
     modalRemoveOpen: false,
     tools: [],
-    search: ""
+    search: "",
+    onlyTags: true
   };
 
   updateTools = async () => {
-    const response = await listTools();
-    const tools = response.data;
-    this.setState({ tools });
+    const { onlyTags, search } = this.state;
+    let tools = [];
+    if (onlyTags && search.length > 0) {
+      const response = await listTools({
+        tags_like: search
+      });
+      tools = response.data;
+    } else if (search.length > 0) {
+      const response = await listTools({
+        q: search
+      });
+      tools = response.data;
+    } else {
+      const response = await listTools();
+      tools = response.data;
+    }
+    setTimeout(() => {
+      this.setState({ tools });
+    });
+  };
+
+  changeSearch = e => {
+    const search = e.target.value;
+    this.setState({ search }, () => {
+      this.updateTools();
+    });
+  };
+
+  changeTagsOnly = e => {
+    this.setState({ onlyTags: e.target.checked }, () => {
+      this.updateTools();
+    });
   };
 
   componentWillMount() {
@@ -25,7 +56,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const { modalCreateOpen, tools, search } = this.state;
+    const { modalCreateOpen, tools, search, onlyTags } = this.state;
 
     return (
       <Container>
@@ -36,8 +67,17 @@ export default class Home extends Component {
             <Input
               placeholder="search"
               value={search}
-              onChange={e => this.setState({ search: e.target.value })}
+              onChange={this.changeSearch}
             />
+            <label for="only-tags">
+              <input
+                id="only-tags"
+                type="checkbox"
+                checked={onlyTags}
+                onChange={this.changeTagsOnly}
+              />
+              <span>search in tags only</span>
+            </label>
           </FormInputs>
           <Button onClick={() => this.setState({ modalCreateOpen: true })}>
             Add
@@ -45,8 +85,21 @@ export default class Home extends Component {
         </Form>
         <Cards>
           {tools.map(tool => (
-            <Tool key={tool.id} data={tool} updateTools={this.updateTools} />
+            <Tool
+              key={tool.id}
+              data={tool}
+              updateTools={this.updateTools}
+              search={search}
+            />
           ))}
+          {tools.length === 0 && (
+            <>
+              <img style={{ margin: "auto" }} src={emptyList} width={300} />
+              <p style={{ width: "100%", textAlign: "center" }}>
+                Your tools list is empty.
+              </p>
+            </>
+          )}
         </Cards>
         {modalCreateOpen && (
           <ModalCreate

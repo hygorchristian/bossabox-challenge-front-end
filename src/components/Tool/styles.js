@@ -27,8 +27,12 @@ export const Container = styled.div`
     span {
       margin-right: 10px;
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 600;
       color: ${Ink};
+
+      &.highlight {
+        background-color: #cff9e6;
+      }
     }
   }
 `;

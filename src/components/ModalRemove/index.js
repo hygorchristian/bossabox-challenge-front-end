@@ -14,7 +14,7 @@ export default class ModalRemove extends Component {
   };
 
   render() {
-    const { close } = this.props;
+    const { close, toolName } = this.props;
 
     return (
       <ModalDOM>
@@ -25,7 +25,7 @@ export default class ModalRemove extends Component {
             </CloseContainer>
             <h4>Remove tool</h4>
             <p>
-              Are you sure you want to remove <strong>hotel</strong>?
+              Are you sure you want to remove <strong>{toolName}</strong>?
             </p>
             <ButtonsContainer>
               <Button style={{ marginRight: 30 }} onClick={close}>

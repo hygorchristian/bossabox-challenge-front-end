@@ -10,7 +10,7 @@ export default class Tool extends Component {
 
   render() {
     const { modalRemoveOpen } = this.state;
-    const { updateTools, data: tool } = this.props;
+    const { updateTools, search, data: tool } = this.props;
 
     return (
       <Card elevation={1} style={{ padding: 20 }}>
@@ -27,15 +27,25 @@ export default class Tool extends Component {
           </a>
           <p>{tool.description}</p>
           <div className="tags">
-            {tool.tags.map(tag => (
-              <span key={tag}>#{tag}</span>
-            ))}
+            {tool.tags.map(tag => {
+              const match = new RegExp(search, "i");
+              if (match.exec(tag) && search.length > 0) {
+                return (
+                  <span className="highlight" key={tag}>
+                    #{tag}
+                  </span>
+                );
+              }
+
+              return <span key={tag}>#{tag}</span>;
+            })}
           </div>
         </Container>
 
         {modalRemoveOpen && (
           <ModalRemove
             toolID={tool.id}
+            toolName={tool.title}
             close={e => {
               this.setState({ modalRemoveOpen: false });
               updateTools();

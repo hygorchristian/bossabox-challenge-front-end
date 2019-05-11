@@ -5,8 +5,8 @@ const api = axios.create({
   timeout: 10000
 });
 
-export const listTools = () => {
-  return api.get("/tools");
+export const listTools = params => {
+  return api.get("/tools", { params });
 };
 
 export const createTool = data => {
