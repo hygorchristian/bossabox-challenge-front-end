@@ -2,15 +2,21 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 export default class ModalDOM extends Component {
-  componentDidMount() {
+  setupView = () => {
     this.modalTarget = document.createElement("div");
     this.modalTarget.className = "modal";
     document.body.appendChild(this.modalTarget);
     this._render();
+  };
+
+  componentDidMount() {
+    this.setupView();
   }
 
   componentWillUpdate() {
-    this._render();
+    setTimeout(() => {
+      this._render();
+    });
   }
 
   componentWillUnmount() {

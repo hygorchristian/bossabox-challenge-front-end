@@ -12,7 +12,7 @@ export default () => (
       stroke="#8f8a9b"
       strokeMiterlimit={10}
       strokeWidth={2}
-      class="a"
+      className="a"
       d="M32,20,20,32m12,0L20,20"
       transform="translate(-19.292 -19.293)"
     />

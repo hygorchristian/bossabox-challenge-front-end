@@ -64,3 +64,31 @@ export const TextInput = styled.input`
     }
   }
 `;
+
+export const TextareaInput = styled.textarea`
+  min-height: 120px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid ${props => (props.error ? Red : DarkestWhite)};
+  background-color: ${props => (props.error ? "#FEEFEE" : DarkerWhite)};
+  padding: 20px;
+  justify-content: center;
+  font-size: 20px;
+  color: ${props => (props.error ? Red : Ink)};
+  resize: none;
+
+  &::placeholder {
+    color: ${props => (props.error ? LightRed : LighterInk)};
+  }
+
+  &:focus {
+    background-color: ${DarkestWhite};
+    border-color: ${MostDarkestWhite};
+    color: ${Ink};
+    outline: none;
+
+    &::placeholder {
+      color: ${LightInk};
+    }
+  }
+`;

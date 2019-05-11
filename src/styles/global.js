@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { LighterPurple, Ink, LightInk } from "../utils/Colors";
+import { Ink, LightInk } from "../utils/Colors";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    background-color: ${LighterPurple};
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     font-family: 'Source Sans Pro', sans-serif;
@@ -40,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     display:flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;

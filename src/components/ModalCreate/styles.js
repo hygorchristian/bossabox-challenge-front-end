@@ -15,8 +15,8 @@ export const Container = styled.div`
 
 export const CloseContainer = styled.div`
   position: absolute;
-  width: 100%;
   cursor: pointer;
+  right: -30px;
 
   svg {
     float: right;
@@ -46,4 +46,14 @@ export const ButtonsContainer = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   margin-top: 30px;
+`;
+
+export const Form = styled.form`
+  width: 540px;
+  margin-top: 50px;
+
+  .input-create {
+    margin-bottom: 20px;
+    width: 100%;
+  }
 `;

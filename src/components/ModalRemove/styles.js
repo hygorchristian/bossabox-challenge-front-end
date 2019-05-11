@@ -15,8 +15,8 @@ export const Container = styled.div`
 
 export const CloseContainer = styled.div`
   position: absolute;
-  width: 100%;
   cursor: pointer;
+  right: -30px;
 
   svg {
     float: right;
