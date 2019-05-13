@@ -8,7 +8,6 @@ Desafio front-end bossabox de construir uma aplicação simples para gerenciar f
 - [Guia de instalação](https://github.com/rushy06/bossabox-desafio-front-end#rocket-guia-de-instala%C3%A7%C3%A3o)
   - [Como instalar](https://github.com/rushy06/bossabox-desafio-front-end#executando-a-aplica%C3%A7%C3%A3o)
   - [Executando a aplicação](https://github.com/rushy06/bossabox-desafio-front-end#executando-a-aplica%C3%A7%C3%A3o)
-- [Documentação](https://github.com/rushy06/bossabox-desafio-front-end#open_book-documenta%C3%A7%C3%A3o-swagger)
 - [Conteinerização (Docker)](https://github.com/rushy06/bossabox-desafio-front-end#whale2-conteineriza%C3%A7%C3%A3o-docker)
   - [Comandos Docker](https://github.com/gabrielsouzadev/vuttr-vue#comandos-docker)
 
@@ -60,8 +59,14 @@ Compilar a imagem
 docker build -t dockeruser/appname .
 ```
 
-Executar a imagem (A aplicação estará acessível em localhost:8080)
+Executar a imagem (A aplicação estará acessível em localhost:3000)
 
 ```
-docker run -it -p 8080:8080 --rm --name containername dockeruser/appname
+docker run -it \
+  -p 3000:3000 \
+  --rm \
+  --name containername \
+  -v ${PWD}:/usr/src/app \
+  -v /usr/src/app/node_modules \
+  dockeruser/appname
 ```
