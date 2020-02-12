@@ -1,0 +1,20 @@
+{
+  "tools": [
+    {
+      "id": 1,
+      "title": "Chrome",
+      "link": "https://google.com",
+      "description": "web browser",
+      "tags": ["navigation", "html", "css"],
+      "createdAt": "2020-02-20T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Sublime Text",
+      "link": "https://sublime.com",
+      "description": "Code editor",
+      "tags": ["code", "editor", "javascript"],
+      "createdAt": "2020-02-20T00:00:00Z"
+    }
+  ]
+}
