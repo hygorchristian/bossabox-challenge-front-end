@@ -35,6 +35,14 @@ Entre na pasta e instale as dependências:
 cd bossabox-desafio-front-end && yarn
 ```
 
+### Executando o servidor (dados)
+
+Iniciar o servidor mock:
+
+```
+yarn mock
+```
+
 ### Executando a aplicação
 
 Iniciar a aplicação em modo de desenvolvimento:
